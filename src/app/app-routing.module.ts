@@ -9,6 +9,11 @@ const routes: Routes = [                                      // ->path page
     { path: '', component: HomeComponent},                    // -> / home page  localhost:4200/
     { path: 'login', component: LoginComponent},              // -> / login page  localhost:4200/login
     { path: 'register', component: RegisterComponent},        // -> / register page  localhost:4200/register
+    { 
+      path: 'dashboard',
+      loadChildren: () => import('./protected/protected.module')
+                                .then(module => module.ProtectedModule)
+    },                
     { path: '**', redirectTo: ''},                            // -> / hola   page  localhost:4200/hola
   ];
 
